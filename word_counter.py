@@ -50,3 +50,13 @@ def main(input_filepath, output_filepath="top_words.txt"):
     if content is None:
         print(f"Помилка: Файл '{input_filepath}' не знайдено.")
         return
+
+    processed_text = preprocess_text(content)
+    word_counts = count_words(processed_text)
+    top_words = get_top_n_words(word_counts)
+    write_results_to_file(output_filepath, top_words)
+    print(f"Топ-10 слів записано у файл '{output_filepath}'.")
+
+if __name__ == "__main__":
+    input_file = input("Введіть шлях до вхідного .txt файлу: ")
+    main(input_file)
