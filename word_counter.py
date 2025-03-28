@@ -35,3 +35,18 @@ def get_top_n_words(word_counts, n=10):
     return word_counts.most_common(n)
 
 def write_results_to_file(filepath, top_words):
+    """
+    Записує результати у файл у форматі "слово-кількість".
+    """
+    with open(filepath, 'w', encoding='utf-8') as f:
+        for word, count in top_words:
+            f.write(f"{word}-{count}\n")
+
+def main(input_filepath, output_filepath="top_words.txt"):
+    """
+    Основна функція для обробки файлу та запису результатів.
+    """
+    content = read_file(input_filepath)
+    if content is None:
+        print(f"Помилка: Файл '{input_filepath}' не знайдено.")
+        return
