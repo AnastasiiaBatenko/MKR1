@@ -15,3 +15,14 @@ def test_read_file(temp_file):
     content = read_file(temp_file)
     assert content == "Це тестовий текст. Тестовий текст містить кілька слів. Кілька."
     assert read_file("non_existent_file.txt") is None
+
+@pytest.mark.parametrize(
+    "input_text, expected_output",
+    [
+        ("Це тестовий текст.", "це тестовий текст"),
+        ("123 Hello, World!", " hello world"),
+        ("Привіт Світ!", "привіт світ"),
+        (None, ""),
+        ("", ""),
+    ],
+)
