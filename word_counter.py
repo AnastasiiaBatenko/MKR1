@@ -11,3 +11,12 @@ def read_file(filepath):
         return content
     except FileNotFoundError:
         return None
+
+def preprocess_text(text):
+    """
+    Видаляє нелітерні символи та приводить текст до нижнього регістру.
+    """
+    if text is None:
+        return ""
+    text = re.sub(r'[^a-zA-Zа-яА-ЯіїєІЇЄ\s]', '', text)
+    return text.lower()
