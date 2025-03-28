@@ -26,3 +26,5 @@ def test_read_file(temp_file):
         ("", ""),
     ],
 )
+def test_preprocess_text(input_text, expected_output):
+    assert preprocess_text(input_text) == expected_output
