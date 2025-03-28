@@ -10,3 +10,8 @@ def temp_file(tmp_path):
     with open(file_path, "w", encoding="utf-8") as f:
         f.write("Це тестовий текст. Тестовий текст містить кілька слів. Кілька.")
     return str(file_path)
+
+def test_read_file(temp_file):
+    content = read_file(temp_file)
+    assert content == "Це тестовий текст. Тестовий текст містить кілька слів. Кілька."
+    assert read_file("non_existent_file.txt") is None
