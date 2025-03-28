@@ -33,3 +33,9 @@ def test_count_words():
     text = "це тестовий текст тестовий"
     expected_counts = Counter({"це": 1, "тестовий": 2, "текст": 1})
     assert count_words(text) == expected_counts
+    
+def test_get_top_n_words():
+    word_counts = Counter({"a": 5, "b": 3, "c": 1, "d": 4})
+    assert get_top_n_words(word_counts, 2) == [("a", 5), ("d", 4)]
+    assert get_top_n_words(word_counts, 5) == [("a", 5), ("d", 4), ("b", 3), ("c", 1)]
+    assert get_top_n_words(word_counts, 0) == []
