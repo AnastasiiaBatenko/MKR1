@@ -28,3 +28,8 @@ def test_read_file(temp_file):
 )
 def test_preprocess_text(input_text, expected_output):
     assert preprocess_text(input_text) == expected_output
+
+def test_count_words():
+    text = "це тестовий текст тестовий"
+    expected_counts = Counter({"це": 1, "тестовий": 2, "текст": 1})
+    assert count_words(text) == expected_counts
