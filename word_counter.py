@@ -20,3 +20,10 @@ def preprocess_text(text):
         return ""
     text = re.sub(r'[^a-zA-Zа-яА-ЯіїєІЇЄ\s]', '', text)
     return text.lower()
+
+def count_words(text):
+    """
+    Розбиває текст на слова та підраховує їхню кількість.
+    """
+    words = text.split()
+    return Counter(words)
