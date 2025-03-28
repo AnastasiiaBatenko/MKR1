@@ -27,3 +27,11 @@ def count_words(text):
     """
     words = text.split()
     return Counter(words)
+
+def get_top_n_words(word_counts, n=10):
+    """
+    Повертає список з n найпопулярніших слів та їх кількість.
+    """
+    return word_counts.most_common(n)
+
+def write_results_to_file(filepath, top_words):
